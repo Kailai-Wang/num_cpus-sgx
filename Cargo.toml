@@ -12,7 +12,10 @@ categories = ["hardware-support"]
 readme = "README.md"
 
 [target.'cfg(not(windows))'.dependencies]
-libc = "0.2.26"
+# libc = "0.2.26"
 
 [target.'cfg(target_os = "hermit")'.dependencies]
-hermit-abi = "0.3.0"
+# hermit-abi = "0.3.0"
+
+[target.'cfg(not(target_env = "sgx"))'.dependencies]
+sgx_trts = { git = "https://github.com/apache/incubator-teaclave-sgx-sdk", branch = "v2.0.0-preview-11-17" }
